@@ -10,9 +10,9 @@ interface Post {
     content: string;
     cover: string;
     totalView: number;
-    createdBy: string;
     createdDate: string;
     user: {
+        username: string;
         avatar: string;
     };
     hashTagList: {

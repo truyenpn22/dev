@@ -13,12 +13,15 @@ interface TrendingPost {
   content: string;
   cover: string;
   totalView: number;
-  createdBy: string;
   createdDate: string;
   hashTagList: {
     name: string;
     id: number;
   }[];
+  user: {
+    username: string;
+    avatar: string;
+  };
 }
 interface TagProps {
   id: number;
@@ -31,9 +34,9 @@ interface Post {
   content: string,
   cover: string,
   totalView: number,
-  createdBy: string,
   createdDate: string,
   user: {
+    username: string;
     avatar: string;
   };
   hashTagList: {

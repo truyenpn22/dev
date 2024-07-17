@@ -21,6 +21,7 @@ interface Card {
     originalName: string;
   };
   user: {
+    username: string;
     avatar: {
       path: string;
       mediaType: string;
@@ -28,7 +29,6 @@ interface Card {
     }
   },
   totalView: number;
-  createdBy: string;
   createdDate: string;
   hashTagList: {
     id: number;
