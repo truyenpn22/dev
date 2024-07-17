@@ -21,7 +21,6 @@ import createPostIcon from "../../../public/asstets/icons/Themes (13)/vuesax/lin
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { Save2 } from "iconsax-react";
-import {useAxiosSetup} from "@/app/utils/axiosInstance";
 function getWordCount(text: string) {
     const textWithSpaces = text.replace(/<\/p><p>/g, " ");
     const plainText = textWithSpaces.replace(/<\/?[^>]+(>|$)/g, "").trim();
@@ -156,7 +155,6 @@ function extractBodyText(htmlString: string) {
     return textContent;
 }
 const PostCreate = () => {
-    const axiosInstance = useAxiosSetup();
     const saveTimer = useRef<number | null>(null);
     const [initialContent, setInitialContent] = useState<string>("");
     const queryNotify = useSearchParams();
@@ -214,7 +212,7 @@ const PostCreate = () => {
                 },
                 body: JSON.stringify(draftIdValue ? { ...post, id: JSON.parse(draftIdValue).id } : post),
             });
-            
+
             let data = await response.json();
             // let data = response.data;
             if (data) {
@@ -649,28 +647,26 @@ const PostCreate = () => {
                                         setIsCreating(true);
                                         handleCreatePost();
                                     }}
-                                    className={`group px-[16px] py-[12px] text-[18px] font-semibold text-white flex gap-[12px] items-center rounded-[8px] transition duration-500 ease-in-out ${
-                                        post.title === "" ||
-                                        isValidContent === false ||
-                                        post.hashTagList.length === 0 ||
-                                        coverImage.file.length == 0 ||
-                                        isCreating
+                                    className={`group px-[16px] py-[12px] text-[18px] font-semibold text-white flex gap-[12px] items-center rounded-[8px] transition duration-500 ease-in-out ${post.title === "" ||
+                                            isValidContent === false ||
+                                            post.hashTagList.length === 0 ||
+                                            coverImage.file.length == 0 ||
+                                            isCreating
                                             ? "bg-gray-400"
                                             : "bg-[#3C7FF5] hover:bg-blue2 hover:text-blue3"
-                                    }`}
+                                        }`}
                                 >
                                     <Save2
                                         size="28"
                                         className={`text-white 
-                                         ${
-                                             post.title === "" ||
-                                             isValidContent === false ||
-                                             post.hashTagList.length === 0 ||
-                                             coverImage.file.length == 0 ||
-                                             isCreating
-                                                 ? ""
-                                                 : "group-hover:text-blue3 transition-colors duration-500"
-                                         }
+                                         ${post.title === "" ||
+                                                isValidContent === false ||
+                                                post.hashTagList.length === 0 ||
+                                                coverImage.file.length == 0 ||
+                                                isCreating
+                                                ? ""
+                                                : "group-hover:text-blue3 transition-colors duration-500"
+                                            }
                                         `}
                                     />
                                     <span>Save article</span>
