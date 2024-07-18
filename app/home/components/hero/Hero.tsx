@@ -35,10 +35,10 @@ const Hero = async () => {
   const popularComponents = await fetchComponentPopular();
   return (
     <div className="px-6 md:px-150px py-40px bg-gradient-linear1 h-auto">
-      <TrendingPost posts={hotPosts}></TrendingPost>
+      {/* <TrendingPost posts={hotPosts}></TrendingPost>
       <div className="md:block hidden">
         <Carousel components={popularComponents}></Carousel>
-      </div>
+      </div> */}
     </div>
   );
 };
