@@ -30,6 +30,7 @@ const fetchEmail = async (email: string) => {
         headers: {
             "Content-Type": "application/json",
         },
+        referrerPolicy: "unsafe-url",
         body: JSON.stringify({ email }),
     });
     if (!res.ok) {
@@ -109,7 +110,7 @@ const FormSignIn = ({ onRouting, handleLoadingState }: FormSignInProps) => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ token: responseData.idToken, refreshToken: responseData.idRefreshToken, maxAge: responseData.refreshTokenValidSecond}),
+                    body: JSON.stringify({ token: responseData.idToken, refreshToken: responseData.idRefreshToken, maxAge: responseData.refreshTokenValidSecond }),
                 });
                 let tokenData = await result1.json();
                 setUserToken(tokenData.accessToken);
