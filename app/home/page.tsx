@@ -50,6 +50,7 @@ const fetchTags = async (): Promise<TagProps[]> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/home/outstanding/hash-tags/post`, {
     headers: {
       'Cache-Control': 'no-store',
+      'referrerPolicy': "unsafe-url"
     },
     cache: 'no-store',
   });
@@ -63,6 +64,7 @@ const fetchLatest = async (): Promise<Card[]> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/home/outstanding/post/latest-and-greatest`, {
     headers: {
       'Cache-Control': 'no-store',
+      'referrerPolicy': "unsafe-url"
     },
     cache: 'no-store',
   });
@@ -76,6 +78,7 @@ const fetchNew = async (): Promise<Card[]> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/home/outstanding/post/new-and-noteworthy`, {
     headers: {
       'Cache-Control': 'no-store',
+      'referrerPolicy': "unsafe-url"
     },
     cache: 'no-store',
   });
@@ -89,6 +92,8 @@ const fetchBook = async (): Promise<book[]> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/home/outstanding/book`, {
     headers: {
       'Cache-Control': 'no-store',
+      'referrerPolicy': "unsafe-url"
+
     },
     cache: 'no-store',
   });
@@ -107,9 +112,9 @@ const HomePage = async () => {
   ]);
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Taglist tags={tags.length > 0 ? tags : []} />
-      <Hero />
+      {/* <Hero /> */}
       <Latest cards={latest} />
       <News cards={news} />
       <Book books={books} />
