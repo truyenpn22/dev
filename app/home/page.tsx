@@ -113,9 +113,9 @@ const HomePage = async () => {
   ]);
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Taglist tags={tags.length > 0 ? tags : []} />
-      {/* <Hero /> */}
+      <Hero />
       <Latest cards={latest} />
       <News cards={news} />
       <Book books={books} />

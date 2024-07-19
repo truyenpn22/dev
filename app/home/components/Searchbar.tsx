@@ -61,7 +61,9 @@ const Searchbar: React.FC<SearchBarProps> = ({ isInHeader }) => {
 
   const handleSearch = async (keyword: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/search/global?keyword=${keyword}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/search/global?keyword=${keyword}`, {
+        referrerPolicy: "unsafe-url"
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch search results");
       }

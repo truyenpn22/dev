@@ -8,7 +8,8 @@ const fetchHotPosts = async () => {
       'Cache-Control': 'no-cache',
       'Pragma': 'no-cache',
       'Expires': '0',
-    }
+    },
+    referrerPolicy: "unsafe-url",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch hot posts");
@@ -22,7 +23,9 @@ const fetchComponentPopular = async () => {
       'Cache-Control': 'no-cache',
       'Pragma': 'no-cache',
       'Expires': '0'
-    }
+    },
+    referrerPolicy: "unsafe-url"
+
   });
   if (!res.ok) {
     throw new Error("Failed to fetch popular components");

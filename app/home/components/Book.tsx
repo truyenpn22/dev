@@ -69,6 +69,7 @@ const Book: React.FC<BookProps> = ({ books }) => {
           Pragma: "no-cache",
           Expires: "0",
         },
+        referrerPolicy: "unsafe-url",
       }
     );
     if (!res.ok) {
@@ -147,6 +148,8 @@ const Book: React.FC<BookProps> = ({ books }) => {
                         }
                         alt={item.title}
                         className="w-full h-[297px] object-cover"
+                        referrerPolicy="unsafe-url"
+
                       />
                     </div>
                     <h2 className="w-full text-28px font-semibold pt-12px px-12px pb-[20px] group-hover:text-blue3 transition duration-500 ease-in-out">

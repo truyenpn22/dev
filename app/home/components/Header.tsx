@@ -87,7 +87,10 @@ const fetchCountNotification = async (tokenUser: string) => {
             Pragma: "no-cache",
             Expires: "0",
             Authorization: `Bearer ${tokenUser}`,
+
         },
+        referrerPolicy: "unsafe-url",
+
         cache: "no-store",
     });
     if (!res.ok) {
@@ -105,6 +108,8 @@ const fetchNotifications = async (tokenUser: string) => {
             Expires: "0",
             Authorization: `Bearer ${tokenUser}`,
         },
+        referrerPolicy: "unsafe-url",
+
         cache: "no-store",
     });
     if (!res.ok) {
@@ -123,6 +128,8 @@ const fetchReadAll = async (tokenUser: string) => {
             Expires: "0",
             Authorization: `Bearer ${tokenUser}`,
         },
+        referrerPolicy: "unsafe-url",
+
         cache: "no-store",
     });
     if (!res.ok) {
@@ -139,6 +146,8 @@ const fetchReadEach = async (tokenUser: string, notificationId: string) => {
             Expires: "0",
             Authorization: `Bearer ${tokenUser}`,
         },
+        referrerPolicy: "unsafe-url",
+
         cache: "no-store",
     });
     if (!res.ok) {
@@ -311,7 +320,7 @@ const Header: React.FC = () => {
     const handleReadEach = (notificationId: string) => {
         if (userToken && notificationId) {
             fetchReadEach(userToken, notificationId)
-                .then(() => {})
+                .then(() => { })
                 .catch((error) => {
                     console.error("Failed to mark all notifications as read:", error);
                 });
@@ -404,9 +413,8 @@ const Header: React.FC = () => {
     return (
         <>
             <div
-                className={`pb-5 md:pb-0 w-full sticky top-0 left-0 right-0 transition-opacity duration-300  ${
-                    showHeader ? "opacity-100 z-30" : "opacity-0 z-20"
-                }`}
+                className={`pb-5 md:pb-0 w-full sticky top-0 left-0 right-0 transition-opacity duration-300  ${showHeader ? "opacity-100 z-30" : "opacity-0 z-20"
+                    }`}
             >
                 <div className="bg-white py-20px px-6 ">
                     <div className="flex justify-between  gap-0 md:gap-20  items-center">
@@ -428,9 +436,8 @@ const Header: React.FC = () => {
                             </div>
                             <div className="w-full md:block hidden ml-20">
                                 <Link
-                                    className={`mr-32px text-25px leading-30px font-bold font-inter hover:text-blue3 transition duration-500 ease-in-out ${
-                                        activeHeader === "articles" ? "text-blue3" : ""
-                                    }`}
+                                    className={`mr-32px text-25px leading-30px font-bold font-inter hover:text-blue3 transition duration-500 ease-in-out ${activeHeader === "articles" ? "text-blue3" : ""
+                                        }`}
                                     href="/articles"
                                     passHref
                                     onClick={() => setActiveHeader("articles")}
@@ -439,9 +446,8 @@ const Header: React.FC = () => {
                                 </Link>
 
                                 <Link
-                                    className={`text-25px leading-30px font-bold font-inter hover:text-blue3 transition duration-500 ease-in-out ${
-                                        activeHeader === "component" ? "text-blue3" : ""
-                                    }`}
+                                    className={`text-25px leading-30px font-bold font-inter hover:text-blue3 transition duration-500 ease-in-out ${activeHeader === "component" ? "text-blue3" : ""
+                                        }`}
                                     href="/showcomponents"
                                     passHref
                                     onClick={() => setActiveHeader("component")}
@@ -500,18 +506,17 @@ const Header: React.FC = () => {
                                                                     href={
                                                                         notification.href
                                                                             ? notification.href
-                                                                                  .replace("{baseHrefComponent}", "/showcomponents")
-                                                                                  .replace("{baseHrefPost}", "/detail") +
-                                                                              (text == "New comment" ? "?newcomment" : "")
+                                                                                .replace("{baseHrefComponent}", "/showcomponents")
+                                                                                .replace("{baseHrefPost}", "/detail") +
+                                                                            (text == "New comment" ? "?newcomment" : "")
                                                                             : ""
                                                                     }
                                                                     key={Math.floor(Math.random() * 1000000)}
                                                                 >
                                                                     <div
                                                                         onClick={() => handleReadEach(notification.id)}
-                                                                        className={`hover:bg-[#F7F9FB] mt-2 transition ease-in-out duration-500 flex items-start justify-start w-full cursor-pointer p-4 rounded-3xl ${
-                                                                            notification.read == false && "bg-gray4"
-                                                                        }`}
+                                                                        className={`hover:bg-[#F7F9FB] mt-2 transition ease-in-out duration-500 flex items-start justify-start w-full cursor-pointer p-4 rounded-3xl ${notification.read == false && "bg-gray4"
+                                                                            }`}
                                                                     >
                                                                         <Image src={icon} alt="" className="size-12 mr-4" />
                                                                         <div className="w-full">
@@ -563,6 +568,7 @@ const Header: React.FC = () => {
                                                         className="w-12 h-12 max-w-12 rounded-full ml-2 border"
                                                         src={process.env.NEXT_PUBLIC_BASE_IMG_URL + JSON.parse(userAccount.avatar).path}
                                                         alt="avatar"
+                                                        referrerPolicy="unsafe-url"
                                                     />
                                                 </Link>
                                             ) : (

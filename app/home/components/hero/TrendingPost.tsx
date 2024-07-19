@@ -15,13 +15,13 @@ interface Post {
         originalName: string;
     };
     totalView: number;
-    user:{
-       username: string;
-       avatar: {
-        path: string;
-        mediaType: string;
-        originalName: string;
-       } 
+    user: {
+        username: string;
+        avatar: {
+            path: string;
+            mediaType: string;
+            originalName: string;
+        }
     }
     createdDate: string;
     hashTagList: {
@@ -154,6 +154,8 @@ const TrendingPost: React.FC<TrendingPostProps> = ({ posts }) => {
                                                         src={process.env.NEXT_PUBLIC_BASE_IMG_URL + posts[0].cover.path}
                                                         alt={posts[0].title}
                                                         className="w-full object-fill h-full object-center rounded-[16px]"
+                                                        referrerPolicy="unsafe-url"
+
                                                     />
                                                 </div>
                                             </div>
@@ -171,6 +173,8 @@ const TrendingPost: React.FC<TrendingPostProps> = ({ posts }) => {
                                                     src={process.env.NEXT_PUBLIC_BASE_IMG_URL + posts[1].cover.path}
                                                     alt={posts[1].title}
                                                     className="w-[496px] h-[323px] rounded-[16px] object-cover"
+                                                    referrerPolicy="unsafe-url"
+
                                                 />
                                             </div>
                                             <p className="font-bold text-xl leading-6 text-gray1 mt-1">
@@ -216,6 +220,8 @@ const TrendingPost: React.FC<TrendingPostProps> = ({ posts }) => {
                                                     src={process.env.NEXT_PUBLIC_BASE_IMG_URL + posts[2].cover.path}
                                                     alt={posts[2].title}
                                                     className="rounded-[16px] w-[496px] h-[323px] object-cover"
+                                                    referrerPolicy="unsafe-url"
+
                                                 />
                                             </div>
                                             <p className="font-bold text-xl leading-6 text-gray1 mt-1">
@@ -289,6 +295,7 @@ const TrendingPost: React.FC<TrendingPostProps> = ({ posts }) => {
                                                         src={process.env.NEXT_PUBLIC_BASE_IMG_URL + posts[3].cover.path}
                                                         alt={posts[3].title}
                                                         className="w-full object-fill h-full object-center rounded-[16px]"
+                                                        referrerPolicy="unsafe-url"
                                                     />
                                                 </div>
                                             </div>

@@ -289,6 +289,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
                                         }`}
                                       alt={item.title}
                                       className="w-full h-full "
+                                      referrerPolicy="unsafe-url"
                                     />
                                   </div>
                                 </div>
