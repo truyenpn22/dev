@@ -352,7 +352,7 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         const socket = new SockJS(`${process.env.NEXT_PUBLIC_BASE_URL}ws`, {
-            referrerPolicy: "unsafe-url",
+            referrerPolicy: "unsafe-url"
         });
         const stompClient: CompatClient = Stomp.over(socket);
 
