@@ -97,6 +97,7 @@ const News: React.FC<NewProps> = ({ cards }) => {
                         item.user.avatar.path
                       }
                       alt={item.title}
+                      referrerPolicy="no-referrer"
                       className="shadow-avatarShadow w-[96px] h-[96px] object-cover border-[5px] rounded-[16px] border-blue3 rotate-[18deg] group-hover:rotate-[0] transition-transform duration-500 ease-in-out"
                     />
                   ) : (
