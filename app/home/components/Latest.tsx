@@ -92,7 +92,6 @@ const Latest: React.FC<LatestProps> = ({ cards }) => {
                         process.env.NEXT_PUBLIC_BASE_IMG_URL +
                         item.user.avatar.path
                       }
-                      referrerPolicy="unsafe-url"
                       alt={item.title}
                       className="shadow-avatarShadow w-[96px] h-[96px] object-cover border-[5px] rounded-[16px] border-blue-500 rotate-[18deg] group-hover:rotate-[0] transition-transform duration-500 ease-in-out"
                     />
