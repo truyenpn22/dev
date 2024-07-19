@@ -93,7 +93,6 @@ const fetchBook = async (): Promise<book[]> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/home/outstanding/book`, {
     headers: {
       'Cache-Control': 'no-store',
-
     },
     referrerPolicy: "unsafe-url",
     cache: 'no-store',
@@ -118,7 +117,7 @@ const HomePage = async () => {
       {/* <Hero /> */}
       <Latest cards={latest} />
       <News cards={news} />
-      <Book books={books} />
+      {/* <Book books={books} /> */}
       <Footer tags={tags} />
     </div>
   );
